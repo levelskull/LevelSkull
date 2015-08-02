@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="blogApp">
+<head>
+<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8" />
+<title>{{site.SiteTitle}}</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="blog.js"></script>
+<link href=”css_filename.css” rel=”stylesheet” type=”text/css” />
+</head>
+<body ng-controller="blogCtrl" >
+	
+	<div id="intro" ng-show="site == null">
+	
+	</div>
+	
+	<div id="header" ng-show="site != null">
+		{{site.SiteHeader}}
+	</div>
+	<div id="siteBody" ng-show="site != null">
+	
+	<div id="content">
+	{{site.Description}}
+	<hr>
+	<div class="sitesDesc" ng-repeat="article in site.Articles">
+	<!--<img src="{{article.Image}}"  />-->
+	<h3>{{article.Title}}</h3>
+	{{article.Description}}
+	<br>
+	<br><a ng-href="{{article.Link}}" target="_blank">{{article.Title}}</a>
+	<hr>	
+	</div>
+	
+	</div>
+	</div>
+	
+	<div id="footer" ng-show="site != null">
+		Copyright {{site.SiteTitle}} 2015
+	</div>
+	
+	
+	
+</body>
+</html>
